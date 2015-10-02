@@ -1,0 +1,12 @@
+paris amiens 20
+paris arras 35
+paris lille 50
+amiens arras 15
+amiens lille 30
+arras lille 15
+lille arras 15
+lille amiens 30
+lille paris 50
+arras amiens 15
+arras paris 35
+amiens paris 20
