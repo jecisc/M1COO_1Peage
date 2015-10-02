@@ -1,6 +1,6 @@
 package peage.factory;
 
-import java.util.HashMap;
+import java.util.Map;
 
 import peage.domaine.BorneEntree;
 import peage.domaine.BorneSortie;
@@ -21,7 +21,7 @@ public class BorneFactory {
 		return  new BorneEntree(city);
 	}
 	
-	public BorneSortie createOutputBorne(String city, HashMap<String, Integer> prix){
+	public BorneSortie createOutputBorne(String city, Map<String, Integer> prix){
 		return new BorneSortie(city, prix);
 	}
 }
