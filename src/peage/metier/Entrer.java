@@ -7,6 +7,6 @@ public class Entrer implements PeageAction {
 	}
 	
 	public void action(){
-		
+		System.out.print("Entrer");
 	}
 }
