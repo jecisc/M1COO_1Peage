@@ -1,12 +1,14 @@
 package peage.metier;
 
+import java.io.BufferedReader;
+
 public class Entrer implements PeageAction {
 
-	public Entrer(){
-		
+	public Entrer() {
+
 	}
-	
-	public void action(){
-		System.out.print("Entrer");
+
+	public void action(BufferedReader br) {
+		System.out.print("    --> nom de l'entrée : ");
 	}
 }

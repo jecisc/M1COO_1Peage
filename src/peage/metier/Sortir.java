@@ -1,12 +1,14 @@
 package peage.metier;
 
+import java.io.BufferedReader;
+
 public class Sortir implements PeageAction {
 
-	public Sortir(){
-		
+	public Sortir() {
+
 	}
-	
-	public void action(){
-		System.out.print("SORTIR");
+
+	public void action(BufferedReader br) {
+		System.out.print("    --> nom de la sortie : ");
 	}
 }
