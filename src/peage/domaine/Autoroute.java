@@ -23,28 +23,38 @@ public class Autoroute {
 	}
 
 	public Autoroute() {
-		Map<String, Integer> placesPrices = new HashMap<String, Integer>();
-		String ligne, startPlace;
-		int price;
+		this.bornesEntrees = new HashMap<String, BorneEntree>();
+		this.bornesSorties = new HashMap<String, BorneSortie>();
 
+		String line;
+		String[] coll;
 
-			
-			try {
-				InputStream stream = new FileInputStream(PATH);
-				InputStreamReader readStream = new InputStreamReader(stream);
-				BufferedReader br = new BufferedReader(readStream);
-				br.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		try {
+			InputStream stream = new FileInputStream(PATH);
+			InputStreamReader readStream = new InputStreamReader(stream);
+			BufferedReader br = new BufferedReader(readStream);
+			while ((line = br.readLine()) != null) {
+				coll = line.split(" ");
+				this.addBorneEntree(coll[1]);
+				this.addBorneSortie(coll);
 			}
-			
-			/*while ((ligne = br.readLine()) != null) {
-				if (ligne.split(" ")[1].equals(finishPlace)) {
-					startPlace = ligne.split(" ")[0];
-					price = Integer.parseInt(ligne.split(" ")[2]);
-					placesPrices.put(startPlace, price);
-				}
-			}*/
+			br.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void addBorneSortie(String[] coll) {
+		if (!this.bornesSorties.containsKey(coll[2])) {
+			this.bornesSorties.put(coll[2], new BorneSortie(coll[2]));
+		}
+		this.bornesSorties.get(coll[2]).addPrice(coll[1], Integer.parseInt(coll[2]));
+	}
+
+	public void addBorneEntree(String city) {
+		if (!this.bornesEntrees.containsKey(city)) {
+			this.bornesEntrees.put(city, new BorneEntree(city));
+		}
 	}
 }
