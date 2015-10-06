@@ -46,15 +46,26 @@ public class Autoroute {
 	}
 
 	public void addBorneSortie(String[] coll) {
-		if (!this.bornesSorties.containsKey(coll[2])) {
-			this.bornesSorties.put(coll[2], new BorneSortie(coll[2]));
+		if (!this.bornesSorties.containsKey(coll[1])) {
+			this.bornesSorties.put(coll[1], new BorneSortie(coll[1]));
 		}
-		this.bornesSorties.get(coll[2]).addPrice(coll[1], Integer.parseInt(coll[2]));
+		this.bornesSorties.get(coll[1]).addPrice(coll[1], Integer.parseInt(coll[2]));
 	}
 
 	public void addBorneEntree(String city) {
 		if (!this.bornesEntrees.containsKey(city)) {
 			this.bornesEntrees.put(city, new BorneEntree(city));
+		}
+	}
+
+	public boolean cityExist(String city) {
+		return this.bornesSorties.containsKey(city);
+
+	}
+	
+	public void printCities(){
+		for( String city : this.bornesSorties.keySet()){
+			System.out.println(city);
 		}
 	}
 }
