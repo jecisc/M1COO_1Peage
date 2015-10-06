@@ -8,9 +8,13 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
+import peage.factory.Distributeur;
+
 public class Autoroute {
 
-	private static Autoroute CURRENT = new Autoroute();
+	protected static Autoroute CURRENT = new Autoroute();
+
+	protected Distributeur distributeur;
 
 	protected static final String PATH = "ressources/prix.txt";
 
@@ -23,6 +27,7 @@ public class Autoroute {
 	}
 
 	public Autoroute() {
+		this.distributeur = new Distributeur();
 		this.bornesEntrees = new HashMap<String, BorneEntree>();
 		this.bornesSorties = new HashMap<String, BorneSortie>();
 
@@ -54,7 +59,9 @@ public class Autoroute {
 
 	public void addBorneEntree(String city) {
 		if (!this.bornesEntrees.containsKey(city)) {
-			this.bornesEntrees.put(city, new BorneEntree(city));
+			BorneEntree borne = new BorneEntree(city);
+			borne.distributeur(this.distributeur);
+			this.bornesEntrees.put(city, borne);
 		}
 	}
 
@@ -62,10 +69,14 @@ public class Autoroute {
 		return this.bornesSorties.containsKey(city);
 
 	}
-	
-	public void printCities(){
-		for( String city : this.bornesSorties.keySet()){
+
+	public void printCities() {
+		for (String city : this.bornesSorties.keySet()) {
 			System.out.println(city);
 		}
+	}
+
+	public Ticket ticketFor(String city) {
+		return this.bornesEntrees.get(city).getTicket();
 	}
 }

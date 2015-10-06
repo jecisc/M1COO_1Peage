@@ -13,7 +13,7 @@ public class Interact implements PeageAction {
 	}
 
 	public void action(BufferedReader br) throws IOException {
-		//TODO This string should be generated from the content of the HashMap.
+		//TODO This string should be generated from the content of the HashMap to be able to plug new commands.
 		System.out.print("--> entrée (e) ou sortie (s) ou quitter (q) :");
 		String commande = br.readLine().trim();
 		try {

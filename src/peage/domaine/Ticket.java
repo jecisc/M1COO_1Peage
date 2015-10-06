@@ -8,4 +8,8 @@ public class Ticket{
 	    this.code = city + number.toString();
     }
     
+    public String toString(){
+    	return this.code;
+    }
+    
 }

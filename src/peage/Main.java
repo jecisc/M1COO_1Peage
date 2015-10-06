@@ -15,11 +15,12 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		Interact interaction = (new Interact());
 		interaction.setCommandeWith(new HashMap<String, String>());
-		interaction.action(br);
+		while (true) {
+			interaction.action(br);
+		}
 		/*
-		 * System.out.print( "    --> votre ticket : "); System.out.print(
-		 * "    --> le prix à payer est de "); System.out.print(
-		 * "    --> votre ticket est ");
+		 * System.out.print( "    --> le prix à payer est de ");
+		 * System.out.print( "    --> votre ticket est ");
 		 */
 	}
 
