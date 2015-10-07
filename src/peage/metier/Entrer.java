@@ -14,13 +14,13 @@ public class Entrer implements PeageAction {
 
 	public void action(BufferedReader br) throws IOException {
 		System.out.print("    --> nom de l'entrée : ");
-		String city = br.readLine().toLowerCase();
-		if (Autoroute.current().cityExist(city)) {
+		String city = br.readLine().toLowerCase().trim();
+		if (Autoroute.current().cityEntranceExist(city)) {
 			Ticket ticket = Autoroute.current().ticketFor(city);
-			System.out.println( "    --> votre ticket : " + ticket.toString());
+			System.out.println( "    --> votre ticket est " + ticket.toString());
 		} else {
 			System.out.println("Cette ville n'est pas une destination valide. Villes possibles: ");
-			Autoroute.current().printCities();
+			Autoroute.current().printEntranceCities();
 			this.action(br);
 		}
 

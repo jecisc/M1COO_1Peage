@@ -65,18 +65,33 @@ public class Autoroute {
 		}
 	}
 
-	public boolean cityExist(String city) {
+	public boolean cityExitExist(String city) {
 		return this.bornesSorties.containsKey(city);
 
 	}
 
-	public void printCities() {
+	public boolean cityEntranceExist(String city) {
+		return this.bornesEntrees.containsKey(city);
+
+	}
+
+	public void printExitCities() {
 		for (String city : this.bornesSorties.keySet()) {
+			System.out.println(city);
+		}
+	}
+	
+	public void printEntranceCities() {
+		for (String city : this.bornesEntrees.keySet()) {
 			System.out.println(city);
 		}
 	}
 
 	public Ticket ticketFor(String city) {
 		return this.bornesEntrees.get(city).getTicket();
+	}
+	
+	public BorneSortie exitBorneFor(String city){
+		return this.bornesSorties.get(city);
 	}
 }
